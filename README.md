@@ -48,6 +48,10 @@ struct State {
     chars_query: GqlPromiseData<EgCharsQuery>,
 }
 
+let state = State {
+    chars_query: None,
+}
+
 
 //
 // Do the query and store the resulting data / promise (GqlPromiseData) in your stateful
