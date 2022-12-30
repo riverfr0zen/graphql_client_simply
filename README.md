@@ -1,8 +1,10 @@
 # Motivation 
 
-Simplify use of the [graphql_client](https://github.com/graphql-rust/graphql-client) crate when developing for both non-blocking (wasm) and blocking targets.
+Simplify use of the [graphql_client](https://github.com/graphql-rust/graphql-client) crate when developing for wasm targets and otherwise. That is, for `cfg(target_arch = "wasm32")` this will use non-blocking GraphQL calls, and for `cfg(not(target_arch = "wasm32"))` it will use blocking calls.
 
-This crate is in early dev for a specific (gaming/graphics related) project, so it won't be entirely flexible in terms of how async is handled. For example, it uses [poll-promise](https://github.com/EmbarkStudios/poll-promise) crate, which may not be suitable for your application.
+Obviously this is a pretty specific approach, so the crate may not be suitable for all projects. I am currently using it in a [notan](https://github.com/Nazariglez/notan) + [egui](https://github.com/emilk/egui) project and it works well for that.
+
+To manage async calls in wasm targets, the crate uses [poll-promise](https://github.com/EmbarkStudios/poll-promise).
 
 Examples & better documentation will come later if necessary/on request. For now:
 
@@ -14,7 +16,7 @@ Make sure the following dependencies are in Cargo.toml:
 
 ```
 graphql_client = { version = ">=0.11.0" }
-graphql_client_simply = { path = "graphql_client_simply" }
+graphql_client_simply = { git = "https://github.com/riverfr0zen/graphql_client_simply.git" }
 ```
 
 In your code: 
