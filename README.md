@@ -53,6 +53,8 @@ struct State {
 // Do the query and store the resulting data / promise (GqlPromiseData) in your stateful
 // location. 
 //
+let variables = eg_chars_query::Variables {};
+let url = "https://rickandmortyapi.com/graphql";
 let state.chars_query = gqlquery::<EgCharsQuery>(url, variables);
 
 
