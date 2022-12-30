@@ -48,7 +48,7 @@ struct State {
     chars_query: GqlPromiseData<EgCharsQuery>,
 }
 
-let state = State {
+let mut state = State {
     chars_query: None,
 }
 
@@ -76,7 +76,4 @@ if state.chars_query.is_fetching() {
 
 // You can clear the data / promise as follows:
 state.chars_query.clear();
-
-
-
 ```
